@@ -6,15 +6,13 @@ variables:
   DOCKER_DRIVER: overlay2
   CONTAINER_IMAGE: registry.gitlab.com/ijames/venture1-backend
 
-before_script:
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/ijames/venture1-backend
-  - echo $CI_JOB_TOKEN
-
 services:
 - docker:dind
 
 before_script:
 - docker info
+- docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/ijames/venture1-backend
+- echo $CI_JOB_TOKEN
 
 build:
   stage: build
