@@ -1,5 +1,6 @@
-image: docker:stable
+#https://docs.gitlab.com/ee/ci/docker/using_docker_build.html for more information on how gitlab ci/cd works. 
 
+image: docker:stable
 # When using dind, it's wise to use the overlayfs driver for
 # improved performance.
 variables:
