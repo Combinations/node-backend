@@ -17,7 +17,7 @@ before_script:
 build:
   stage: build
   script:
-    - docker pull $CONTAINER_IMAGE:latest || true
+    - docker pull $CONTAINER_IMAGE/release:latest || true
     - docker build -f docker/Dockerfile --cache-from $CONTAINER_IMAGE:latest -t $CONTAINER_IMAGE/release:$CI_COMMIT_SHA -t $CONTAINER_IMAGE/release:latest .
     - docker push $CONTAINER_IMAGE/release:$CI_COMMIT_SHA
     - docker push $CONTAINER_IMAGE/release:latest
