@@ -1,2 +1,10 @@
+services:
+- docker:dind
+
 before_script:
-  - apt-get update 
+- docker info
+
+build:
+  stage: build
+  script:
+    - docker build -f docker/Dockerfile -t release/${CI_COMMIT_SHA} .
