@@ -36,7 +36,7 @@ You can build and run in a single command:
 
 >docker-compose up --build
 
-## Run the tests
+## Run tests
 
 Finally, run the tests to ensure proper setup:
 
