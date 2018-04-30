@@ -19,9 +19,9 @@ build:
   stage: build
   script:
     - $(aws ecr get-login --no-include-email --region us-west-2) #log in to aws
-    - docker pull $CONTAINER_IMAGE_URL/release:latest || true
-    - docker build -f docker/Dockerfile --cache-from $CONTAINER_IMAGE:latest -t $CONTAINER_IMAGE_URL/release:$CI_COMMIT_SHA -t $CONTAINER_IMAGE_URL/release:latest .
-    - docker push $CONTAINER_IMAGE_URL/release:$CI_COMMIT_SHA
-    - docker push $CONTAINER_IMAGE_URL/release:latest
+    - docker pull $CONTAINER_IMAGE_URL:latest || true
+    - docker build -f docker/Dockerfile --cache-from $CONTAINER_IMAGE:latest -t $CONTAINER_IMAGE_URL:$CI_COMMIT_SHA -t $CONTAINER_IMAGE_URL:latest .
+    - docker push $CONTAINER_IMAGE_URL:$CI_COMMIT_SHA
+    - docker push $CONTAINER_IMAGE_URL:latest
   only:
     - master
