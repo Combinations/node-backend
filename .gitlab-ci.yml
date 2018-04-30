@@ -7,7 +7,7 @@ variables:
   CONTAINER_IMAGE: registry.gitlab.com/ijames/venture1-backend
 
 before_script:
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/ijames/venture1-backend
 
 services:
 - docker:dind
