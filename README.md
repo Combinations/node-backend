@@ -1,6 +1,6 @@
-# Run the application for development
+# Running the application for development
 
-This application consists of two containers. MongoDB and a nodeJS application. 
+This application consists of two containers. MongoDB and a NodeJS application. 
 
 In order to run the application for development we will need to set env and build/run the application's containers. 
 
@@ -12,7 +12,7 @@ The application enviroment is specifed in a .env.
 
 The repo contains a .env.dev file, copy the contents of that file to a .env and ensure that all env variables are set. 
 
-## Build the docker container 
+## Build the NodeJS container 
 
 To build the docker image of the backend run the following command in the root directory of the project: 
 
