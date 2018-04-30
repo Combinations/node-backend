@@ -12,7 +12,7 @@ The application enviroment is specifed in a .env.
 
 The repo contains a .env.dev file, copy the contents of that file to a .env and ensure that all env variables are set. 
 
-# Build the docker container 
+## Build the docker container 
 
 To build the docker image of the backend run the following command in the root directory of the project: 
 
@@ -24,19 +24,19 @@ alternativly, you can run:
 
 The above command will build the containers that are specified in the docker-compose file
 
-# Run the application 
+## Run the application 
 
 Run the containers that are specifed in the docker-compose file: 
 
 >docker-compose up 
 
-# Alternative to steps 2 and 3
+## Alternative to steps 2 and 3
 
 You can build and run in a single command: 
 
 >docker-compose up --build
 
-# Run the tests
+## Run the tests
 
 Finally, run the tests to ensure proper setup:
 
