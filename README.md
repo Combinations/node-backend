@@ -8,9 +8,9 @@ Follow the below steps to run the application.
 
 ## Application environment 
 
-The application enviroment is specifed in a .env. 
+The NodeJS application expects its enviroment to be specifed in a file named .env 
 
-The repo contains a .env.dev file, copy the contents of that file to a .env and ensure that all env variables are set. 
+The repo contains a .env.dev file, copy the contents of that file to .env and ensure that all env variables are set
 
 ## Build the NodeJS container 
 
