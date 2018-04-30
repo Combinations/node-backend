@@ -4,6 +4,10 @@ image: docker:stable
 # improved performance.
 variables:
   DOCKER_DRIVER: overlay2
+  CONTAINER_IMAGE: registry.gitlab.com/ijames/venture1-backend/
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
 
 services:
 - docker:dind
@@ -14,4 +18,5 @@ before_script:
 build:
   stage: build
   script:
-    - docker build -f docker/Dockerfile -t registry.gitlab.com/ijames/venture1-backend/release:${CI_COMMIT_SHA} .
+    - docker build -f docker/Dockerfile -t $CONTAINER_IMAGE/release:$CI_COMMIT_SHA .
+    - docker push $CONTAINER_IMAGE/release:$CI_COMMIT_SHA
