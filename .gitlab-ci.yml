@@ -14,4 +14,4 @@ before_script:
 build:
   stage: build
   script:
-    - docker build -f docker/Dockerfile -t release/${CI_COMMIT_SHA} .
+    - docker build -f docker/Dockerfile -t registry.gitlab.com/ijames/venture1-backend/release:${CI_COMMIT_SHA} .
