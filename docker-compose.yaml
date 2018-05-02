@@ -1,4 +1,4 @@
-version: "2"
+version: "2.1"
 services:
   app:
     container_name: node-backend
@@ -10,8 +10,12 @@ services:
       - "8090:8080"
     links:
       - mongo
+    depends_on:
+      - mongo
+    command: ["./wait-for-it.sh", "mongo:27017", "--", "yarn", "start"]
     env_file:
       - .env
+
   mongo:
     container_name: mongo
     image: mongo
