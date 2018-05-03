@@ -30,4 +30,4 @@ deploy:
   stage: deploy
   script: 
     - aws elasticbeanstalk create-application-version --application-name staging-venture1-backend --version-label $CI_COMMIT_SHA --source-bundle S3Bucket="elasticbeanstalk-us-west-2-971053300417",S3Key="staging-venture1-backend-dockerrun.aws.json" --region us-west-2
-    - aws elasticbeanstalk update-environment --environment-name StagingVenture1Frontend-env --version-label $CI_COMMIT_SHA --region us-west-2
+    - aws elasticbeanstalk update-environment --environment-name StagingVenture1Backend-env --version-label $CI_COMMIT_SHA --region us-west-2
