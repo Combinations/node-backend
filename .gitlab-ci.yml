@@ -5,23 +5,29 @@ image: docker:stable
 # improved performance.
 variables:
   DOCKER_DRIVER: overlay2
-  CONTAINER_IMAGE_URL: 971053300417.dkr.ecr.us-west-2.amazonaws.com/venture1-backend
+  STAGING_CONTAINER_IMAGE_URL: 971053300417.dkr.ecr.us-west-2.amazonaws.com/staging-venture1-backend
 
 services:
 - docker:dind
 
 before_script:
 - docker info
-- apk add --no-cache curl jq python py-pip #install aws cli
+- apk add --no-cache curl jq python py-pip # install aws cli
 - pip install awscli 
+- $(aws ecr get-login --no-include-email --region us-west-2) # log in to aws
 
 build:
   stage: build
   script:
-    - $(aws ecr get-login --no-include-email --region us-west-2) #log in to aws
-    - docker pull $CONTAINER_IMAGE_URL:latest || true
-    - docker build -f docker/Dockerfile --cache-from $CONTAINER_IMAGE:latest -t $CONTAINER_IMAGE_URL:$CI_COMMIT_SHA -t $CONTAINER_IMAGE_URL:latest .
-    - docker push $CONTAINER_IMAGE_URL:$CI_COMMIT_SHA
-    - docker push $CONTAINER_IMAGE_URL:latest
+    - docker pull $STAGING_CONTAINER_IMAGE_URL:latest || true
+    - docker build -f docker/Dockerfile --cache-from $STAGING_CONTAINER_IMAGE_URL:latest -t $STAGING_CONTAINER_IMAGE_URL:$CI_COMMIT_SHA -t $STAGING_CONTAINER_IMAGE_URL:latest .
+    - docker push $STAGING_CONTAINER_IMAGE_URL:$CI_COMMIT_SHA
+    - docker push $STAGING_CONTAINER_IMAGE_URL:latest
   only:
     - master
+
+deploy:
+  stage: deploy
+  script: 
+    - aws elasticbeanstalk create-application-version --application-name staging-venture1-frontend --version-label $CI_COMMIT_SHA --source-bundle S3Bucket="elasticbeanstalk-us-west-2-971053300417",S3Key="staging-venture1-backend-dockerrun.aws.json" --region us-west-2
+    - aws elasticbeanstalk update-environment --environment-name StagingVenture1Frontend-env-1 --version-label $CI_COMMIT_SHA --region us-west-2
