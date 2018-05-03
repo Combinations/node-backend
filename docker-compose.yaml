@@ -12,7 +12,6 @@ services:
       - mongo
     depends_on:
       - mongo
-    command: ["./wait-for-it.sh", "mongo:27017", "--", "yarn", "start"]
     env_file:
       - .env
 

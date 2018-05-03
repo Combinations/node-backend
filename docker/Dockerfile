@@ -19,3 +19,5 @@ RUN npm install
 COPY . .
 
 EXPOSE 8090
+
+CMD ["./wait-for-it.sh", "mongo:27017", "--", "yarn", "start"]
