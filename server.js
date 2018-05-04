@@ -17,6 +17,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json());
+app.use(cors({credientials: true, origin: process.env.FRONTEND_ORIGIN}))
 
 //SESSION HANDLING SETUP 
 app.use(session({
@@ -32,8 +33,6 @@ app.use(session({
 //APPLICATION ENDPOINTS
 app.use('/user', user);
 app.use('/authentication', authentication);
-
-app.use(cors({credientials: true, origin: process.env.FRONTEND_ORIGIN}))
 
 //LISTEN 
 app.listen(process.env.APP_PORT, function() {
