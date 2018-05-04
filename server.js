@@ -17,7 +17,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json());
-app.use(cors({credentials: true, origin: process.env.FRONTEND_ORIGIN}))
+app.use(cors())
 
 //SESSION HANDLING SETUP 
 app.use(session({
