@@ -33,7 +33,7 @@ app.use(session({
 app.use('/user', user);
 app.use('/authentication', authentication);
 
-app.use(cors({credientials: true, origin: FRONTEND_ORIGIN}))
+app.use(cors({credientials: true, origin: false}))
 
 //LISTEN 
 app.listen(process.env.APP_PORT, function() {
