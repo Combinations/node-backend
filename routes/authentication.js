@@ -6,7 +6,7 @@ const router = express.Router();
 const authentication_controller = require('../controllers/authenticationController');
 
 //add middleware to routes
-router.use(middleware.logger, middleware.errorHandler);
+router.use(middleware.logger, middleware.cors, middleware.errorHandler);
 
 //POST request for login
 router.post('/login', authentication_controller.login_post);
