@@ -6,7 +6,7 @@ const router = express.Router();
 const user_controller = require('../controllers/userController');
 
 //add middleware to routes
-router.use(middleware.logger, middleware.errorHandler);
+router.use(middleware.logger, middleware.cors, middleware.errorHandler);
 
 //POST request for creating a User.
 router.post('/create', user_controller.user_create_post);
