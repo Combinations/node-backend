@@ -1,7 +1,7 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-      "Name": "971053300417.dkr.ecr.us-west-2.amazonaws.com/staging-venture1-backend",
+      "Name": "917105333123.dkr.ecr.us-west-2.amazonaws.com/<EBS-project>",
       "Update": "true"
     },
     "Ports": [
