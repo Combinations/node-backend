@@ -66,7 +66,7 @@ userSchema.post('save', function(user) {
   });
 
   let mailOptions = {
-    from: '"James" <jamesleahy314@gmail.com>', // sender address
+    from: '"James" <email@gmail.com>', // sender address
     to: user.email, // list of receivers
     subject: 'Welcome to <Name>!', // Subject line
     text: 'We are excited that you ......', // plain text body

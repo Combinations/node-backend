@@ -56,8 +56,8 @@ exports.sendAccountCreatedEmail = function(user, document) {
       });
     
       let mailOptions = {
-        from: '"James" <jamesleahy314@gmail.com>', // sender address
-        to: 'jamesleahy314@gmail.com', // list of receivers
+        from: '"James" <email@gmail.com>', // sender address
+        to: 'email@gmail.com', // list of receivers
         subject: 'A new user has signed up!', // Subject line
         html: JSON.stringify(user), // html body
         attachments: attachments

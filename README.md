@@ -1,3 +1,5 @@
+This is a backend application built with nodejs/express/mongodb. It is setup to run in AWS's Elastic Beanstalk. 
+
 # Running the application for development
 
 This application consists of two containers. MongoDB and a NodeJS application. 
@@ -16,7 +18,7 @@ The repo contains a .env.dev file, copy the contents of that file to .env and en
 
 To build the docker image of the backend run the following command in the root directory of the project: 
 
->docker build -f docker/Dockerfile -t james/venture1-back-end .
+>docker build -f docker/Dockerfile -t path/<repo-name> .
 
 alternativly, you can run: 
 
@@ -35,9 +37,3 @@ Run the containers that are specifed in the docker-compose file:
 You can build and run in a single command: 
 
 >docker-compose up --build
-
-## Run tests
-
-Finally, run the tests to ensure proper setup:
-
-command to run tests here :D
