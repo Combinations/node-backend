@@ -28,7 +28,7 @@ build:
 deploy:
   stage: deploy
   script: 
-    - aws elasticbeanstalk create-application-version --application-name venture1-backend --version-label $CI_COMMIT_SHA --source-bundle S3Bucket=$S3_BUCKEt,S3Key=$S3_KET --region us-west-2
+    - aws elasticbeanstalk create-application-version --application-name venture1-backend --version-label $CI_COMMIT_SHA --source-bundle S3Bucket=$S3_BUCKET, S3Key=$S3_KEY --region us-west-2
     - aws elasticbeanstalk update-environment --environment-name StagingVenture1Backend-env-1 --version-label $CI_COMMIT_SHA --region us-west-2
   only:
     - master
